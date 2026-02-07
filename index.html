@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question for Chandrika</title>
+    <style>
+        body {
+            background: radial-gradient(circle, #4a001f, #2d0012);
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            overflow: hidden;
+        }
+
+        #lock-screen, #propose-screen {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 40px;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            max-width: 400px;
+            width: 85%;
+            text-align: center;
+        }
+
+        #propose-screen { display: none; }
+
+        h1 { font-size: 1.6rem; color: #ffb3c1; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        
+        .hint { font-size: 0.85rem; color: #ff85a1; margin-bottom: 20px; opacity: 0.9; }
+
+        input {
+            width: 90%;
+            padding: 14px;
+            border: 1px solid #ffb3c1;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            color: #590d22;
+            font-weight: bold;
+        }
+
+        button {
+            background: linear-gradient(to right, #ff4d6d, #c9184a);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        .video-box {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid #ffb3c1;
+            margin-top: 15px;
+        }
+
+        .heart-bg {
+            position: absolute;
+            color: rgba(255, 182, 193, 0.2);
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110vh); }
+            100% { transform: translateY(-10vh); }
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        // Create floating hearts for a Propose Day vibe
+        for (let i = 0; i < 20; i++) {
+            let heart = document.createElement('div');
+            heart.className = 'heart-bg';
+            heart.innerHTML = '💍';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.opacity = Math.random();
+            document.body.appendChild(heart);
+        }
+    </script>
+
+    <div id="lock-screen">
+        <h1>For my one and only, Chandrika... ❤️</h1>
+        <p class="hint">How do you reply when I say: <br><strong>"I love you Chandrika"</strong>?</p>
+        <input type="text" id="answer" placeholder="Your reply, Baby...">
+        <br>
+        <button onclick="unlockPropose()">Answer Me</button>
+    </div>
+
+    <div id="propose-screen">
+        <h1>Happy Propose Day, Sexy! 💍</h1>
+        <div class="video-box">
+            <video id="proposeVid" width="100%" height="auto" loop playsinline muted>
+                <source src="propose.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p style="margin-top: 20px; color: #ffb3c1; font-style: italic;">
+            "Chandrika, you are the moonlight of my life. <br>
+            Will you continue to be my everything?"
+        </p>
+        <button onclick="toggleAudio()" id="audioBtn" style="background:none; border: 1px solid #ffb3c1; font-size: 10px; margin-top: 5px;">Turn Sound On 🔊</button>
+        <div style="margin-top: 15px; font-size: 25px;">💖🌹✨</div>
+    </div>
+
+    <script>
+        function unlockPropose() {
+            const reply = document.getElementById('answer').value.toLowerCase().trim();
+            const vid = document.getElementById('proposeVid');
+
+            if (reply === "i love you too manjit") {
+                document.getElementById('lock-screen').style.display = 'none';
+                document.getElementById('propose-screen').style.display = 'block';
+                vid.play();
+            } else {
+                alert("That's not the answer I was looking for, Cutie! ❤️");
+            }
+        }
+
+        function toggleAudio() {
+            const vid = document.getElementById('proposeVid');
+            const btn = document.getElementById('audioBtn');
+            if (vid.muted) {
+                vid.muted = false;
+                btn.innerHTML = "Mute 🔇";
+            } else {
+                vid.muted = true;
+                btn.innerHTML = "Turn Sound On 🔊";
+            }
+        }
+    </script>
+</body>
+</html>

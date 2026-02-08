@@ -96,9 +96,9 @@
     </script>
 
     <div id="lock-screen">
-        <h1>For my one and only, Chandrika... ❤️</h1>
-        <p class="hint">How do you reply when I say: <br><strong>"I love you Chandrika"</strong>?</p>
-        <input type="text" id="answer" placeholder="Your reply, Baby...">
+        <h1>Hello My Cutie Baby Chandrika...😘💋😚❤️</h1>
+        <p class="hint">Baby kisko pyar krti hai😘: <br><strong>Who's your baby Chandrika😘</strong>?</p>
+        <input type="text" id="answer" placeholder="Cutie Baby ka reply....">
         <br>
         <button onclick="unlockPropose()">Answer Me</button>
     </div>
@@ -122,12 +122,16 @@
             const reply = document.getElementById('answer').value.toLowerCase().trim();
             const vid = document.getElementById('proposeVid');
 
-            if (reply === "i love you too manjit") {
+            if (reply === "only manjit" || reply === "only you" || reply  === "only you daddy" || reply === "only you baby" || reply === "only you jaan" ||
+               reply === "only my manjit" || reply === "only you baby" || reply  === "only my daddy" || reply === "only my baby" || reply === "only my jaan") {
                 document.getElementById('lock-screen').style.display = 'none';
                 document.getElementById('propose-screen').style.display = 'block';
                 vid.play();
+            } else if (reply === "manjit" || reply === "you" || reply  === "you daddy" || reply === "you baby" || reply === "you jaan" ||
+                      reply === "my manjit" || reply === "you baby" || reply  === "my daddy" || reply === "my baby" || reply === "my jaan") {
+                alert("Pta hi tha only nhi likhegi😒😒😒");
             } else {
-                alert("That's not the answer I was looking for, Cutie! ❤️");
+                alert("Sudhar jao harami😒😒😒");
             }
         }
 
@@ -146,3 +150,4 @@
 </body>
 
 </html>
+

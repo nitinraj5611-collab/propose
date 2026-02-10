@@ -122,16 +122,13 @@
             const reply = document.getElementById('answer').value.toLowerCase().trim();
             const vid = document.getElementById('proposeVid');
 
-            if (reply === "only manjit" || reply === "only you" || reply  === "only you daddy" || reply === "only you baby" || reply === "only you jaan" ||
-               reply === "only my manjit" || reply === "only you baby" || reply  === "only my daddy" || reply === "only my baby" || reply === "only my jaan" ||
-               reply === "manjit only" || reply === "manjit kumar yadav only" || reply  === "manjit kumar only" ||
-                reply === "only manjit kumar yadav" || reply  === "only manjit kumar") {
+            if ((reply.includes("manjit") || reply.includes("you") ||  reply.includes("daddy") ||  reply.includes("baby") ||  reply.includes("jaan")) &&
+                reply.includes("only")) {
                 document.getElementById('lock-screen').style.display = 'none';
                 document.getElementById('propose-screen').style.display = 'block';
                 vid.play();
-            } else if (reply === "manjit" || reply === "you" || reply  === "you daddy" || reply === "you baby" || reply === "you jaan" ||
-                      reply === "my manjit" || reply === "you baby" || reply  === "my daddy" || reply === "my baby" || reply === "my jaan" ||
-                      reply === "manjit kumar yadav" || reply  === "manjit kumar") {
+            } else if ((reply.includes("manjit") || reply.includes("you") ||  reply.includes("daddy") ||  reply.includes("baby") ||  reply.includes("jaan")) &&
+                (!reply.includes("only"))) {
                 alert("Pta hi tha only nhi likhegi😒😒😒");
             } else {
                 alert("Sudhar jao harami😒😒😒");
@@ -153,6 +150,7 @@
 </body>
 
 </html>
+
 
 
 
